@@ -16,3 +16,7 @@ rabbitmq 매니지먼트
 - 계정: guest/guest
 
 mongodb 작업중..
+
+# docker
+none 태그 이미지 한번에 삭제하기
+- docker rmi $(docker images -f "dangling=true" -q)
