@@ -6,14 +6,13 @@
 
 # 사용방법
 express api 서버
-
-localhost:3000
+- localhost:3000
 
 메세지 보내기
-get localhost:3000/users
+- get localhost:3000/users
 
-rabbitmq 확인
-localhost:15672
-guest/guest
+rabbitmq 매니지먼트
+- localhost:15672
+- 계정: guest/guest
 
 mongodb 작업중..
