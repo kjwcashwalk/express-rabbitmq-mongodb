@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  api:
+    build: ./api
+    ports:
+      - "3000:3000"
+    environment:
+      - MESSAGE_QUEUE=amqp://rabbitmq
+    depends_on:
+      - rabbitmq
+    command: ["npm", "start"]
+
+  service:
+    build: ./service2
+    environment:
+      - MESSAGE_QUEUE=amqp://rabbitmq
+    restart: on-failure
+    command: ["node", "receive.js"]
+    depends_on:
+      - rabbitmq

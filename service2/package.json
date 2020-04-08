@@ -1,0 +1,14 @@
+{
+  "name": "service2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "receive.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.5"
+  }
+}
