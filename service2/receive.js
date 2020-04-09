@@ -1,5 +1,5 @@
 const amqp = require('amqplib/callback_api');
-console.log(process.env.MESSAGE_QUEUE);
+
 amqp.connect(process.env.MESSAGE_QUEUE, function(error0, connection) {
   if (error0) {
     console.error(error0);
