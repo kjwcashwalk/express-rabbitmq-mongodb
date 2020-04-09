@@ -1,7 +1,7 @@
 # This stage installs our modules
 FROM mhart/alpine-node:12 AS api_build
 WORKDIR /app
-COPY package.json yarn.lock ./
+COPY package.json package-lock./
 
 # If you have native dependencies, you'll need extra tools
 #RUN apk add --no-cache make gcc g++ python
