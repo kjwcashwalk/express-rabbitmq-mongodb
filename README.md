@@ -4,6 +4,26 @@
 # 설치방법
 > docker-compose up -d --build
 
+# docker-compose 설명
+mongodb
+- 몽고디비
+
+rabbitmq
+- rabbitmq
+
+api
+- api 서버
+- express framework
+
+service
+- service 서버
+- rabbitmq 처리
+- 유저 저장 처리
+
+# 아키텍쳐
+api 접속 > get 요청이면 > mongodb에서 조회
+        > post 요청이면 > rabbitmq로 데이터 보냄 > service에서 데이터 받음, 유저 저장
+
 # 사용방법
 express api 서버
 - localhost:3000
