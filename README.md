@@ -22,7 +22,8 @@ service
 
 # 아키텍쳐
 api 접속 > get 요청이면 > mongodb에서 조회
-        > post 요청이면 > rabbitmq로 데이터 보냄 > service에서 데이터 받음, 유저 저장
+
+api 접속 > post 요청이면 > rabbitmq로 데이터 보냄 > service에서 데이터 받음, 유저 저장
 
 # 사용방법
 express api 서버
