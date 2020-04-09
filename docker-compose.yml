@@ -18,17 +18,18 @@ services:
       - "3000:3000"
     environment:
       - MESSAGE_QUEUE=amqp://rabbitmq
-      - MONGODB_HOST=mongodb
+      - MONGODB_HOST=mongodb://mongodb:27017
+    restart: on-failure
     depends_on:
       - rabbitmq
       - mongodb
-    command: ["npm", "start"]
+    command: ["node", "bin/www"]
 
   service:
     build: ./service2
     environment:
       - MESSAGE_QUEUE=amqp://rabbitmq
-      - MONGODB_HOST=mongodb
+      - MONGODB_HOST=mongodb://mongodb:27017
     restart: on-failure
     command: ["node", "receive.js"]
     depends_on:

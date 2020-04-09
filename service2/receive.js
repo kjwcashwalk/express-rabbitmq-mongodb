@@ -2,7 +2,7 @@ const amqp = require('amqplib/callback_api');
 const connectDB = require('./src/db');
 const {create} = require('./src/users/service');
 
-amqp.connect('amqp://localhost', function(error0, connection) {
+amqp.connect(process.env.MESSAGE_QUEUE || 'amqp://localhost', function(error0, connection) {
   if (error0) {
     console.error(error0);
   }
