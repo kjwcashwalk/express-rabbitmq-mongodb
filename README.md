@@ -8,10 +8,9 @@
 express api 서버
 - localhost:3000
 
-유저 목록
-- get localhost:3000/users
-유저 저장
-- post localhost:3000/users
+유저
+- 목록: get localhost:3000/users
+- 저장: post localhost:3000/users
 
 rabbitmq 매니지먼트
 - localhost:15672
