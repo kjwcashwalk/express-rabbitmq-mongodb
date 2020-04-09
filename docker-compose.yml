@@ -3,7 +3,9 @@ version: '3'
 services:
   mongodb:
     image: mvertes/alpine-mongo:latest
-    
+    ports:
+      - '"27017:27017"
+
   rabbitmq:
     image: rabbitmq:3-management
     ports:
@@ -19,6 +21,7 @@ services:
       - MONGODB_HOST=mongodb
     depends_on:
       - rabbitmq
+      - mongodb
     command: ["npm", "start"]
 
   service:
@@ -30,3 +33,4 @@ services:
     command: ["node", "receive.js"]
     depends_on:
       - rabbitmq
+      - mongodb
