@@ -1,6 +1,9 @@
 version: '3'
 
 services:
+  mongodb:
+    image: mvertes/alpine-mongo:latest
+    
   rabbitmq:
     image: rabbitmq:3-management
     ports:
@@ -13,6 +16,7 @@ services:
       - "3000:3000"
     environment:
       - MESSAGE_QUEUE=amqp://rabbitmq
+      - MONGODB_HOST=mongodb
     depends_on:
       - rabbitmq
     command: ["npm", "start"]
@@ -21,6 +25,7 @@ services:
     build: ./service2
     environment:
       - MESSAGE_QUEUE=amqp://rabbitmq
+      - MONGODB_HOST=mongodb
     restart: on-failure
     command: ["node", "receive.js"]
     depends_on:

@@ -2,7 +2,7 @@ const amqp = require('amqplib/callback_api');
 
 module.exports.connect = () => {
   return new Promise((resolve, reject) => {
-    amqp.connect(process.env.MESSAGE_QUEUE, (err0, conn) => {
+    amqp.connect(process.env.MESSAGE_QUEUE || 'amqp://localhost', (err0, conn) => {
       if (err0) {
         console.log(err0);
         reject(err0);
